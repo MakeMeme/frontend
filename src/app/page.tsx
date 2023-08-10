@@ -3,7 +3,7 @@ import { Hero, Usage, Explore, Create, Footer } from "@/components";
 
 const LandingPage = () => {
   return (
-    <div>
+    <div className={styles.container}>
       <Hero />
       <Usage />
       <Explore />
