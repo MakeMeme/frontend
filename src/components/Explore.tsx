@@ -62,6 +62,7 @@ const Explore = () => {
       <div className={styles.displayMeme}>
         {memes.map((meme) => (
           <Image
+            key={meme.id}
             src={meme.image}
             alt={meme.title}
             width={288}

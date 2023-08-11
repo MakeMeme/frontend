@@ -7,16 +7,16 @@ import { Title, Text, Button } from "@mantine/core";
 
 const navlinks = [
   {
-    name: "Home",
-    url: "/",
+    name: "Usage",
+    url: "/usage",
   },
   {
-    name: "About",
-    url: "/about",
+    name: "Explore",
+    url: "/explore",
   },
   {
-    name: "Contact",
-    url: "/contact",
+    name: "Create",
+    url: "/create",
   },
 ];
 

@@ -16,3 +16,9 @@
   align-items: flex-start;
   gap: 1.1875rem;
 }
+
+.imgSelector {
+  border-radius: 1.5rem;
+  object-fit: cover;
+  cursor: pointer;
+}
