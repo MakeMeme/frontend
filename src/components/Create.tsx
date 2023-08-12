@@ -11,6 +11,7 @@ const leftSection = ({
   ref,
   coordinateSelect,
   state,
+  setState,
 }: {
   ref: React.RefObject<HTMLDivElement>;
   coordinateSelect: () => void;
@@ -19,7 +20,15 @@ const leftSection = ({
     coordinateX: number;
     coordinateY: number;
   }[];
-
+  setState: React.Dispatch<
+    React.SetStateAction<
+      {
+        label: string;
+        coordinateX: number;
+        coordinateY: number;
+      }[]
+    >
+  >;
 }) => {
   const [file, setFile] = useState<File | null>(null);
   const [profileImageSrc, setProfileImageSrc] = useState<string>("");
@@ -27,6 +36,7 @@ const leftSection = ({
 
   const clearFile = () => {
     setFile(null);
+    setState([]);
     resetRef.current?.();
   };
 
@@ -64,7 +74,11 @@ const leftSection = ({
         disabled={file ? true : false}
       >
         {(props) => (
-          <div onClick={coordinateSelect}>
+          <div
+            onClick={() => {
+              file && coordinateSelect();
+            }}
+          >
             <Box
               ref={ref}
               style={{
@@ -74,7 +88,7 @@ const leftSection = ({
                 overflow: "hidden",
               }}
             >
-             <Image
+              <Image
                 src={profileImageSrc ? profileImageSrc : DefaultImage}
                 alt="Profile Picture"
                 height={imageHeight}
@@ -98,7 +112,6 @@ const leftSection = ({
                   {item.label}
                 </Text>
               ))}
-
             </Box>
           </div>
         )}
@@ -246,6 +259,13 @@ const rightSection = ({
           </Text>
         </Button>
       </div>
+      <div>
+        <Button color="primary" onClick={handleClick}>
+          <Text size="sm" weight={500}>
+            Submit
+          </Text>
+        </Button>
+      </div>
     </div>
   );
 };
@@ -284,7 +304,7 @@ const Create = () => {
         Explore your creativity
       </Text>
       <div className={styles.createInfo}>
-        {leftSection({ ref, coordinateSelect, state })}
+        {leftSection({ ref, coordinateSelect, state, setState })}
         {rightSection({
           x: xCoordinate,
           y: yCoordinate,

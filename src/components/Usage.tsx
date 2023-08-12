@@ -2,6 +2,8 @@
 
 import styles from "./Usage.module.css";
 import { Title, Text, Button } from "@mantine/core";
+import usage from "@/assets/Usage/usage.svg";
+import Image from "next/image";
 
 const Usage = () => {
   return (
@@ -17,6 +19,14 @@ const Usage = () => {
           works?
         </Title>
       </div>
+      <Image src={usage} 
+      alt="Usage"
+      
+
+        >
+
+
+      </Image>
     </div>
   );
 };
