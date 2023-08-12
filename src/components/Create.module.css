@@ -17,8 +17,19 @@
   gap: 1.1875rem;
 }
 
+.profileImage {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
 .imgSelector {
   border-radius: 1.5rem;
   object-fit: cover;
   cursor: pointer;
+}
+
+.saveButtons {
+  display: flex;
+  gap: 0.8rem;
 }

@@ -50,6 +50,7 @@ const memes = [
 ];
 
 const Explore = () => {
+
   return (
     <div className={styles.container}>
       {/* <div className={styles.content}> */}
@@ -67,7 +68,8 @@ const Explore = () => {
             alt={meme.title}
             width={288}
             height={160}
-            fill={false}
+            // layout="fill"
+            // fill={true}
             className={styles.meme}
           />
         ))}
