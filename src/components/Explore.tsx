@@ -50,7 +50,6 @@ const memes = [
 ];
 
 const Explore = () => {
-
   return (
     <div className={styles.container}>
       {/* <div className={styles.content}> */}
@@ -62,16 +61,15 @@ const Explore = () => {
       </Text>
       <div className={styles.displayMeme}>
         {memes.map((meme) => (
-          <Image
-            key={meme.id}
-            src={meme.image}
-            alt={meme.title}
-            width={288}
-            height={160}
-            // layout="fill"
-            // fill={true}
-            className={styles.meme}
-          />
+          <div className={styles.image}>
+            <Image
+              key={meme.id}
+              src={meme.image}
+              alt={meme.title}
+              fill={true}
+              className={styles.meme}
+            />
+          </div>
         ))}
       </div>
       <div>

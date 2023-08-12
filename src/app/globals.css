@@ -71,6 +71,18 @@ a {
   }
 }
 
+@media screen and (max-width: 768px) {
+  :root {
+    --h1: 2rem;
+    --h2: 1.5rem;
+    --h3: 1.25rem;
+    --h4: 1rem;
+    --h5: 0.88rem;
+    --c1: 0.75rem;
+    --c2: 0.50rem;
+  }
+}
+
 h1,
 h2 {
   letter-spacing: -0.04em;
@@ -80,3 +92,4 @@ h3,
 h4 {
   letter-spacing: -0.02em;
 }
+
