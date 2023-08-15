@@ -16,9 +16,7 @@
     linear-gradient(0deg, #defee9 0%, #defee9 100%),
     radial-gradient(90.87% 90.87% at 50% 9.13%, #edffef 0%, #c7ffc2 100%),
     #defee9;
-  padding: 4rem 
-    max(1rem, calc(50vw - 37rem))
-  ;
+  padding: 4rem max(1rem, calc(50vw - 37rem));
 }
 
 .content {
@@ -39,7 +37,6 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   grid-gap: 1.5rem;
-
 }
 
 .meme {
@@ -49,7 +46,28 @@
   object-fit: cover;
 }
 
-.image{
+.image {
   position: relative;
   height: 12.5rem;
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: 0.875rem;
+}
+
+.image:hover .memeTitle {
+  opacity: 0.8;
+  bottom: 0;
+  padding-top: 3rem;
+}
+
+.memeTitle {
+  position: absolute;
+  transition: all 0.3s ease-out;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%);
+  color: #fff;
+  padding: 0.75rem;
+  bottom: -100%;
+  border-radius: 0 0 0.875rem 0.875rem;
 }

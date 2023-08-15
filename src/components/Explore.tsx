@@ -70,6 +70,11 @@ const Explore = () => {
               fill={true}
               className={styles.meme}
             />
+            <div className={styles.memeTitle}>
+              <Title order={4} weight={700}>
+                #{meme.title}
+              </Title>
+            </div>
           </div>
         ))}
       </div>
