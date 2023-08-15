@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import "./globals.css";
 import { MantineProvider, ButtonStylesParams } from "@mantine/core";
@@ -7,7 +7,7 @@ import { Manrope } from "next/font/google";
 import { AppProps } from "next/app";
 const manropeFont = Manrope({ subsets: ["latin"] });
 import { RouterTransition } from "@/components/RouterTransition";
-import { AuthProvider } from '@descope/react-sdk';
+import { AuthProvider } from "@descope/react-sdk";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -100,7 +100,19 @@ export default function RootLayout({
         }}
       >
         {/* <RouterTransition /> */}
-        <body className={manropeFont.className} suppressHydrationWarning={true}>{children}</body>
+        <AuthProvider
+          projectId={process.env.NEXT_PUBLIC_DESCOPE_PROJECT_ID!}
+          baseUrl={process.env.NEXT_PUBLIC_DESCOPE_BASE_URL}
+          // use the bellow option when you need to use session token in the SSR render cycle
+          sessionTokenViaCookie
+        >
+          <body
+            className={manropeFont.className}
+            suppressHydrationWarning={true}
+          >
+            {children}
+          </body>
+        </AuthProvider>
       </MantineProvider>
     </html>
   );
