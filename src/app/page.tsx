@@ -5,17 +5,23 @@ import { Hero, Usage, Explore, Create, Footer } from "@/components";
 import { useDescope, useSession, useUser } from "@descope/react-sdk";
 import { GetServerSideProps } from "next";
 import { validateRequestSession } from "@/utils/auth";
-import { SyntheticEvent, useCallback } from "react";
+import { SyntheticEvent, useCallback, useEffect } from "react";
 
 type Repo = {
   name: string;
   stargazers_count: number;
 };
 
+const getUserDisplayName = (user: any) => user?.name || user?.externalIds?.[0] || '';
+
 const LandingPage = () => {
   const { isAuthenticated } = useSession();
   const { user } = useUser();
   const { logout } = useDescope();
+
+  useEffect(() => {
+    console.log(user);
+  }, [user]);
 
   const onLogout = useCallback(() => {
     logout();

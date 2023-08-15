@@ -39,7 +39,7 @@ export default function Login() {
       <main className={styles.main}>
         <div className={styles.login}>
           <DescopeWC
-            flowId={process.env.NEXT_PUBLIC_DESCOPE_FLOW_ID || "sign-up-or-in"}
+            flowId={"sign-up-or-in"}
             onSuccess={onSuccess}
             onError={onError}
           />

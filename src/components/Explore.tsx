@@ -3,6 +3,7 @@
 import styles from "./Explore.module.css";
 import { Title, Text, Button } from "@mantine/core";
 import Image from "next/image";
+import { Navbar } from "@/components";
 
 const memes = [
   {
@@ -52,6 +53,7 @@ const memes = [
 const Explore = () => {
   return (
     <div className={styles.container}>
+<Navbar />
       <Title order={1} color="primary" weight={700}>
         Explore
       </Title>
