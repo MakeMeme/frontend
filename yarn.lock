@@ -60,61 +60,44 @@
     jwt-decode "3.1.2"
     lodash.get "4.4.2"
 
-"@descope/core-js-sdk@1.5.0":
-  version "1.5.0"
-  resolved "https://registry.npmjs.org/@descope/core-js-sdk/-/core-js-sdk-1.5.0.tgz"
-  integrity sha512-Y5XCcN1px5sUhgtvlH7niIWQlzsfXMZkij3cH9L3PJzUNwF4YEzi8tMl5rc6RvkLtPIAqdiXRU0mDg5/RykQNg==
-  dependencies:
-    jwt-decode "3.1.2"
-    lodash.get "4.4.2"
-
 "@descope/core-js-sdk@1.6.0":
   version "1.6.0"
-  resolved "https://registry.npmjs.org/@descope/core-js-sdk/-/core-js-sdk-1.6.0.tgz"
+  resolved "https://registry.yarnpkg.com/@descope/core-js-sdk/-/core-js-sdk-1.6.0.tgz#bec655e86144e50bdf727ee1ebba29692cb7949d"
   integrity sha512-Nn13b4pFnZkMBcds2/mKxFmfSpKRcycrAzECtf/UnVP3nciNgY+kUHtDhoD6gsVhqdUERcGj5xiNAVYStct/Sg==
   dependencies:
     jwt-decode "3.1.2"
     lodash.get "4.4.2"
 
-"@descope/node-sdk@^1.5.6":
-  version "1.5.6"
-  resolved "https://registry.yarnpkg.com/@descope/node-sdk/-/node-sdk-1.5.6.tgz#f017d1171eb7a7de7b0c39e0d520464cc4b0778f"
-  integrity sha512-A7kmIFD8Wslo9ZkI7xG+aMK6dnDs4nAfvrrDAo5PtjyDvwbLTGrIxDKFd+yK7xcOSK+Oh4/N8XH6lRUHlJgoJw==
+"@descope/node-sdk@0.0.0-next-ffe40501-20230718":
+  version "0.0.0-next-ffe40501-20230718"
+  resolved "https://registry.yarnpkg.com/@descope/node-sdk/-/node-sdk-0.0.0-next-ffe40501-20230718.tgz#9e29b0766533bc6c6629c0a9067168c76ae1d9d2"
+  integrity sha512-llLihGgdoM8FV+OhY1DjwExqHvlb2gUBSA/Rnm8JJWY0VgIEqgt/ID9iT+poelTJstrhU0vrjidWSIAnSyCDFg==
   dependencies:
     "@descope/core-js-sdk" "1.4.6"
     jose "4.14.4"
     node-fetch-commonjs "3.3.1"
     tslib "^1.14.1"
 
-"@descope/react-sdk@^1.0.9":
-  version "1.0.10"
-  resolved "https://registry.npmjs.org/@descope/react-sdk/-/react-sdk-1.0.10.tgz"
-  integrity sha512-SnS+RvCATafWFcnKlpkotKMqAkEh2irU65EAgkEfDkhBrwVlb3k0YRBztmVNAR3GHc9rg2/yOStcccptE3a9dA==
+"@descope/react-sdk@0.0.0-next-ff7ef905-20230814":
+  version "0.0.0-next-ff7ef905-20230814"
+  resolved "https://registry.yarnpkg.com/@descope/react-sdk/-/react-sdk-0.0.0-next-ff7ef905-20230814.tgz#68128b7e57d2f7072aa0aed061c98426dfaa2074"
+  integrity sha512-Ic/6CpXQ9dmQ33m5dJcqilVsXHqO5iYFauXtgQwi7dDLJBNGewOSm2YULAv8WIkF5RLm0ymaBPADB6J35y843Q==
   dependencies:
-    "@descope/web-component" "2.7.2"
+    "@descope/web-component" "2.8.2"
   optionalDependencies:
     "@descope/web-js-sdk" ">=1"
 
-"@descope/web-component@2.7.2":
-  version "2.7.2"
-  resolved "https://registry.npmjs.org/@descope/web-component/-/web-component-2.7.2.tgz"
-  integrity sha512-GY3kc7CTK2mBwuNJ6+TkMWXwTNhQ0mqptiwZ7SLCgg6lyiBcJu2/nW3ZxcYXR/i00De+t2m+Mf428Cwq+LKDkQ==
+"@descope/web-component@2.8.2":
+  version "2.8.2"
+  resolved "https://registry.yarnpkg.com/@descope/web-component/-/web-component-2.8.2.tgz#0ae483ef3a8a8616b44c3276ffd1389ca6223657"
+  integrity sha512-qTyQETMnkwcDjM6lVaCV2h17z6fHXHRCrBJ6LMWp6XdwkeaEQstr7OmM8gK3+XcpDoXBoDQ3YBFxBYlTVlbXsw==
   dependencies:
-    "@descope/web-js-sdk" "1.3.8"
-    tslib "2.6.0"
+    "@descope/web-js-sdk" "1.3.9"
+    tslib "2.6.1"
 
-"@descope/web-js-sdk@1.3.8":
-  version "1.3.8"
-  resolved "https://registry.npmjs.org/@descope/web-js-sdk/-/web-js-sdk-1.3.8.tgz"
-  integrity sha512-P6doeEAmU9ukaK6b+cp+hxQSickTVeclbIofYEx1/znqgmMwA9fK12rL+EA93ajiwtcd9sCDb81w8Hb5pDe+mw==
-  dependencies:
-    "@descope/core-js-sdk" "1.5.0"
-    "@fingerprintjs/fingerprintjs-pro" "3.8.3"
-    js-cookie "3.0.5"
-
-"@descope/web-js-sdk@>=1":
+"@descope/web-js-sdk@1.3.9", "@descope/web-js-sdk@>=1":
   version "1.3.9"
-  resolved "https://registry.npmjs.org/@descope/web-js-sdk/-/web-js-sdk-1.3.9.tgz"
+  resolved "https://registry.yarnpkg.com/@descope/web-js-sdk/-/web-js-sdk-1.3.9.tgz#1c6caf49fbc3c91ad95a243c4408f500abf68337"
   integrity sha512-R7DPhQBS9TTQ2H11cO2aQ4zmOQDSxUBcMg+xCntlWUesnuLHfHLTOV4KZt8OBvjL+GlXkThIjXCdblf1TjJvhA==
   dependencies:
     "@descope/core-js-sdk" "1.6.0"
@@ -209,16 +192,9 @@
   resolved "https://registry.npmjs.org/@emotion/weak-memoize/-/weak-memoize-0.3.1.tgz"
   integrity sha512-EsBwpc7hBUJWAsNPBmJy4hxWx12v6bshQsldrVmjxJoc3isbxhOrF2IcCpaXxfvq03NwkI7sbsOLXbYuqF/8Ww==
 
-"@fingerprintjs/fingerprintjs-pro@3.8.3":
-  version "3.8.3"
-  resolved "https://registry.npmjs.org/@fingerprintjs/fingerprintjs-pro/-/fingerprintjs-pro-3.8.3.tgz"
-  integrity sha512-Top2U6/DYVraSir49pIcSQX5DaJhd0farIX3gaNSogy+Ln9NHQz3arM5Q2pdT5mdvWnRLuTLiXw5qacZdvFuQA==
-  dependencies:
-    tslib "^2.4.1"
-
 "@fingerprintjs/fingerprintjs-pro@3.8.5":
   version "3.8.5"
-  resolved "https://registry.npmjs.org/@fingerprintjs/fingerprintjs-pro/-/fingerprintjs-pro-3.8.5.tgz"
+  resolved "https://registry.yarnpkg.com/@fingerprintjs/fingerprintjs-pro/-/fingerprintjs-pro-3.8.5.tgz#9e14b5fadd14a90490be66ddd0d2678f56ac39e1"
   integrity sha512-07bkz/BrQYIHh0FIQ8rMKx62IKu+gkZrUzNsoT1fLwYfnM0uk+s+XQXLeaDXGMGpHgkZSP4nPMAn+nkRfWy6ww==
   dependencies:
     tslib "^2.4.1"
@@ -795,7 +771,7 @@ jose@4.14.4, jose@^4.11.4, jose@^4.14.4:
 
 js-cookie@3.0.5:
   version "3.0.5"
-  resolved "https://registry.npmjs.org/js-cookie/-/js-cookie-3.0.5.tgz"
+  resolved "https://registry.yarnpkg.com/js-cookie/-/js-cookie-3.0.5.tgz#0b7e2fd0c01552c58ba86e0841f94dc2557dcdbc"
   integrity sha512-cEiJEAEoIbWfCZYKWhVwFuvPX1gETRYPw6LlaTKoxD3s2AkXzkCjnp6h0V77ozyqj0jakteJ4YqDJT830+lVGw==
 
 "js-tokens@^3.0.0 || ^4.0.0", js-tokens@^4.0.0:
@@ -1128,20 +1104,15 @@ to-fast-properties@^2.0.0:
   resolved "https://registry.npmjs.org/to-fast-properties/-/to-fast-properties-2.0.0.tgz"
   integrity sha512-/OaKK0xYrs3DmxRYqL/yDc+FxFUVYhDlXMhRmv3z915w2HF1tnN1omB354j8VUGO/hbRzyD6Y3sA7v7GS/ceog==
 
-tslib@2.6.0:
-  version "2.6.0"
-  resolved "https://registry.npmjs.org/tslib/-/tslib-2.6.0.tgz"
-  integrity sha512-7At1WUettjcSRHXCyYtTselblcHl9PJFFVKiCAy/bY97+BPZXSQ2wbq0P9s8tK2G7dFQfNnlJnPAiArVBVBsfA==
+tslib@2.6.1, tslib@^2.0.0, tslib@^2.1.0, tslib@^2.4.0, tslib@^2.4.1:
+  version "2.6.1"
+  resolved "https://registry.npmjs.org/tslib/-/tslib-2.6.1.tgz"
+  integrity sha512-t0hLfiEKfMUoqhG+U1oid7Pva4bbDPHYfJNiB7BiIjRkj1pyC++4N3huJfqY6aRH6VTB0rvtzQwjM4K6qpfOig==
 
 tslib@^1.14.1:
   version "1.14.1"
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.14.1.tgz#cf2d38bdc34a134bcaf1091c41f6619e2f672d00"
   integrity sha512-Xni35NKzjgMrwevysHTCArtLDpPvye8zV/0E4EyYn43P7/7qvQwPh9BGkHewbMulVntbigmcT7rdX3BNo9wRJg==
-
-tslib@^2.0.0, tslib@^2.1.0, tslib@^2.4.0, tslib@^2.4.1:
-  version "2.6.1"
-  resolved "https://registry.npmjs.org/tslib/-/tslib-2.6.1.tgz"
-  integrity sha512-t0hLfiEKfMUoqhG+U1oid7Pva4bbDPHYfJNiB7BiIjRkj1pyC++4N3huJfqY6aRH6VTB0rvtzQwjM4K6qpfOig==
 
 typescript@5.1.6:
   version "5.1.6"
