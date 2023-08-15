@@ -52,7 +52,6 @@ const memes = [
 const Explore = () => {
   return (
     <div className={styles.container}>
-      {/* <div className={styles.content}> */}
       <Title order={1} color="primary" weight={700}>
         Explore
       </Title>
@@ -61,7 +60,7 @@ const Explore = () => {
       </Text>
       <div className={styles.displayMeme}>
         {memes.map((meme) => (
-          <div className={styles.image}>
+          <div key={meme.id} className={styles.image}>
             <Image
               key={meme.id}
               src={meme.image}
@@ -77,7 +76,6 @@ const Explore = () => {
           <Text weight={500}> View All </Text>
         </Button>
       </div>
-      {/* </div> */}
     </div>
   );
 };

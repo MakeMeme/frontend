@@ -7,6 +7,7 @@ import { Manrope } from "next/font/google";
 import { AppProps } from "next/app";
 const manropeFont = Manrope({ subsets: ["latin"] });
 import { RouterTransition } from "@/components/RouterTransition";
+import { AuthProvider } from '@descope/react-sdk';
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -99,7 +100,7 @@ export default function RootLayout({
         }}
       >
         {/* <RouterTransition /> */}
-        <body className={manropeFont.className}>{children}</body>
+        <body className={manropeFont.className} suppressHydrationWarning={true}>{children}</body>
       </MantineProvider>
     </html>
   );

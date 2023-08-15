@@ -144,10 +144,12 @@ const leftSection = ({
 };
 
 const CoordinateInput = ({
+  id,
   label,
   x,
   y,
 }: {
+  id: number;
   label: string;
   x: number;
   y: number;
@@ -159,14 +161,22 @@ const CoordinateInput = ({
       </Text>
       <div className={styles.inputField}>
         <TextInput
+          key={id + "x"}
           icon={<Text>X</Text>}
           classNames={{ input: styles.inputCoordinateArea }}
           value={x}
+          onChange={(event) => {
+            console.log(event.currentTarget.value);
+          }}
         />
         <TextInput
+          key={id + "y"}
           icon={<Text>Y</Text>}
           classNames={{ input: styles.inputCoordinateArea }}
           value={y}
+          onChange={(event) => {
+            console.log(event.currentTarget.value);
+          }}
         />
       </div>
     </div>
@@ -237,6 +247,7 @@ const rightSection = ({
       {state.map((item, index) => (
         <CoordinateInput
           key={index}
+          id={index}
           label={item.label}
           x={item.coordinateX}
           y={item.coordinateY}
