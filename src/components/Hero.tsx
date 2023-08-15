@@ -5,6 +5,7 @@ import Image from "next/image";
 import { logo } from "@/assets/Hero";
 import { Title, Text, Button } from "@mantine/core";
 import { Navbar } from "@/components";
+import Link from "next/link";
 
 const Hero = () => {
   return (
@@ -34,7 +35,16 @@ const Hero = () => {
             egestas. In ut aliquam netus.
           </Text>
         </div>
-        <Button style={{ borderRadius: "0.625rem" }}>Get Started</Button>
+        <Button
+          style={{ borderRadius: "0.625rem" }}
+          component={Link}
+          href={{
+            pathname: "/",
+            query: { authModal: "login" },
+          }}
+        >
+          Get Started
+        </Button>
       </div>
     </div>
   );

@@ -307,7 +307,7 @@ const Create = () => {
   ]);
 
   return (
-    <div className={styles.container}>
+    <div id="create" className={styles.container}>
       <Title order={1} color="primary" weight={700}>
         Create a Meme Template
       </Title>

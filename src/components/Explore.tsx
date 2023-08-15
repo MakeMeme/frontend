@@ -52,8 +52,8 @@ const memes = [
 
 const Explore = () => {
   return (
-    <div className={styles.container}>
-<Navbar />
+    <div id="explore" className={styles.container}>
+      {/* <Navbar /> */}
       <Title order={1} color="primary" weight={700}>
         Explore
       </Title>

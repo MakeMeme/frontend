@@ -7,7 +7,7 @@ import Image from "next/image";
 
 const Usage = () => {
   return (
-    <div className={styles.container}>
+    <div id="usage" className={styles.container}>
       <div className={styles.title}>
         <Title order={1} color="primary.3" weight={700}>
           How
@@ -19,14 +19,7 @@ const Usage = () => {
           works?
         </Title>
       </div>
-      <Image src={usage} 
-      alt="Usage"
-      
-
-        >
-
-
-      </Image>
+      <Image src={usage} alt="Usage" />
     </div>
   );
 };
