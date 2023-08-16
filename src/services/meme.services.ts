@@ -4,9 +4,7 @@ import axios from "axios";
 class MemeServices {
   getAllMemes = async () => {
     try {
-      console.log(API_CONSTANTS.GET_MEMES);
       const { data } = await axios.get(API_CONSTANTS.GET_MEMES);
-      console.log(data);
       return data;
     } catch (error) {
       console.log(error);
@@ -16,8 +14,8 @@ class MemeServices {
   addMeme = async (meme: any) => {
     try {
       const { data } = await axios.post(API_CONSTANTS.ADD_MEME, meme);
-      console.log(data);
-      return data;
+        console.log(data);
+      return {data};
     } catch (error) {
       console.log(error);
     }

@@ -15,6 +15,7 @@ const leftSection = ({
   coordinateSelect,
   state,
   setState,
+  setForm,
 }: {
   ref: React.RefObject<HTMLDivElement>;
   coordinateSelect: () => void;
@@ -31,6 +32,16 @@ const leftSection = ({
         coordinateY: number;
       }[]
     >
+  >;
+  setForm: React.Dispatch<
+    React.SetStateAction<{
+      name: string;
+      image: File | null;
+      coordinates: {
+        coordinateX: number;
+        coordinateY: number;
+      }[];
+    }>
   >;
 }) => {
   const [file, setFile] = useState<File | null>(null);
@@ -63,6 +74,13 @@ const leftSection = ({
       };
 
       img.src = objectURL;
+
+      setForm((prev) => {
+        return {
+          ...prev,
+          image: file,
+        };
+      });
     } else {
       setProfileImageSrc("");
     }
@@ -191,6 +209,8 @@ const rightSection = ({
   y,
   state,
   setState,
+  form,
+  setForm,
 }: {
   x: number;
   y: number;
@@ -208,8 +228,28 @@ const rightSection = ({
       }[]
     >
   >;
+  form: {
+    name: string;
+    image: File | null;
+    coordinates: {
+      coordinateX: number;
+      coordinateY: number;
+    }[];
+  };
+  setForm: React.Dispatch<
+    React.SetStateAction<{
+      name: string;
+      image: File | null;
+      coordinates: {
+        coordinateX: number;
+        coordinateY: number;
+      }[];
+    }>
+  >;
 }) => {
   const [currentActive, setCurrentActive] = useState<number>(0);
+
+  const [name, setName] = useState<string>("");
 
   useEffect(() => {
     setState((prev) => {
@@ -231,7 +271,52 @@ const rightSection = ({
         },
       ];
     });
+
+    setForm((prev) => {
+      return {
+        ...prev,
+        coordinates: [
+          ...prev.coordinates,
+          {
+            coordinateX: x,
+            coordinateY: y,
+          },
+        ],
+      };
+    });
+
     setCurrentActive((prev) => prev + 1);
+  };
+
+  const { trigger: makeMeme, isMutating } = useSWRMutation(
+    SWR_CONSTANTS.MAKE_MEME,
+    createMemeFetcher
+  );
+
+  useEffect(() => {
+    setForm((prev) => {
+      return {
+        ...prev,
+        name: name,
+      };
+    });
+  }, [name]);
+
+  const handleSubmit = async () => {
+    console.log(form);
+    try {
+      const data = await makeMeme({
+        name: form.name,
+        image: form.image,
+        coordinatesArr: form.coordinates.map((item) => {
+          return [item.coordinateX, item.coordinateY];
+        }),
+        user_id: 1,
+      });
+      console.log(data);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -242,6 +327,8 @@ const rightSection = ({
         </Text>
         <TextInput
           icon={<Text>#</Text>}
+          value={name}
+          onChange={(e) => setName(e.currentTarget.value)}
           width="100%"
           classNames={{ input: styles.inputArea }}
         />
@@ -274,7 +361,7 @@ const rightSection = ({
         </Button>
       </div>
       <div>
-        <Button color="primary" onClick={handleClick}>
+        <Button color="primary" onClick={handleSubmit}>
           <Text size="sm" weight={500}>
             Submit
           </Text>
@@ -285,12 +372,20 @@ const rightSection = ({
 };
 
 const Create = () => {
-  const { ref, x, y } = useMouse();
+  const [form, setForm] = useState<{
+    name: string;
+    image: File | null;
+    coordinates: {
+      coordinateX: number;
+      coordinateY: number;
+    }[];
+  }>({
+    name: "",
+    image: null,
+    coordinates: [],
+  });
 
-  const { trigger: buySubscribe, isMutating } = useSWRMutation(
-    SWR_CONSTANTS.MAKE_MEME,
-    createMemeFetcher
-  );
+  const { ref, x, y } = useMouse();
 
   const coordinateSelect = () => {
     setXCoordinate(x);
@@ -323,12 +418,14 @@ const Create = () => {
         Explore your creativity
       </Text>
       <div className={styles.createInfo}>
-        {leftSection({ ref, coordinateSelect, state, setState })}
+        {leftSection({ ref, coordinateSelect, state, setState, setForm })}
         {rightSection({
           x: xCoordinate,
           y: yCoordinate,
           state,
           setState,
+          form,
+          setForm,
         })}
       </div>
     </div>

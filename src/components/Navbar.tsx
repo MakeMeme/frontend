@@ -5,6 +5,8 @@ import { Title, Text, Button } from "@mantine/core";
 import Image from "next/image";
 import { logo } from "@/assets/Hero";
 import Link from "next/link";
+import { useDescope, useSession, useUser } from "@descope/react-sdk";
+import { useCallback } from "react";
 
 const navlinks = [
   {
@@ -22,6 +24,16 @@ const navlinks = [
 ];
 
 const Navbar = () => {
+  const { isAuthenticated } = useSession();
+  const { user } = useUser();
+  const { logout } = useDescope();
+
+  const onLogout = useCallback(() => {
+    logout();
+  }, [logout]);
+
+  console.log(user);
+
   return (
     <div className={styles.navbar}>
       <div className={styles.leftSection}>
@@ -52,27 +64,38 @@ const Navbar = () => {
         </div>
       </div>
       <div className={styles.rightSection}>
-        <Button
-          variant="subtle"
-          style={{ borderRadius: "0.625rem" }}
-          component={Link}
-          href={{
-            pathname: "/",
-            query: { authModal: "login" },
-          }}
-        >
-          Sign Up
-        </Button>
-        <Button
-          style={{ borderRadius: "0.625rem" }}
-          component={Link}
-          href={{
-            pathname: "/",
-            query: { authModal: "login" },
-          }}
-        >
-          Login
-        </Button>
+        {isAuthenticated ? (
+          <>
+            <Text color="primary" weight={700}>
+              {user?.name}
+            </Text>
+            {/* <Image src={user.picture} alt="user image" height={20} width={20} /> */}
+          </>
+        ) : (
+          <>
+            <Button
+              variant="subtle"
+              style={{ borderRadius: "0.625rem" }}
+              component={Link}
+              href={{
+                pathname: "/",
+                query: { authModal: "login" },
+              }}
+            >
+              Sign Up
+            </Button>
+            <Button
+              style={{ borderRadius: "0.625rem" }}
+              component={Link}
+              href={{
+                pathname: "/",
+                query: { authModal: "login" },
+              }}
+            >
+              Login
+            </Button>
+          </>
+        )}
       </div>
     </div>
   );
