@@ -6,6 +6,9 @@ import { useMouse } from "@mantine/hooks";
 import Image from "next/image";
 import { useState, useRef, useEffect } from "react";
 import DefaultImage from "@/assets/Create/DefaultImage.svg";
+import SWR_CONSTANTS from "@/utils/swrConstants";
+import useSWRMutation from "swr/mutation";
+import { createMemeFetcher } from "@/hooks/meme.swr";
 
 const leftSection = ({
   ref,
@@ -283,6 +286,11 @@ const rightSection = ({
 
 const Create = () => {
   const { ref, x, y } = useMouse();
+
+  const { trigger: buySubscribe, isMutating } = useSWRMutation(
+    SWR_CONSTANTS.MAKE_MEME,
+    createMemeFetcher
+  );
 
   const coordinateSelect = () => {
     setXCoordinate(x);

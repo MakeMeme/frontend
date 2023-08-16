@@ -4,6 +4,8 @@ import styles from "./Explore.module.css";
 import { Title, Text, Button } from "@mantine/core";
 import Image from "next/image";
 import { Navbar } from "@/components";
+import { useMeme } from "@/hooks/meme.swr";
+import { use, useEffect } from "react";
 
 const memes = [
   {
@@ -51,9 +53,14 @@ const memes = [
 ];
 
 const Explore = () => {
+  const { memeData, errorFetchingMemeData, isMemeDataLoading } = useMeme();
+
+  useEffect(() => {
+    console.log(memeData);
+  }, [memeData]);
+
   return (
     <div id="explore" className={styles.container}>
-      {/* <Navbar /> */}
       <Title order={1} color="primary" weight={700}>
         Explore
       </Title>

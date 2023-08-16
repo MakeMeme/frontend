@@ -16,9 +16,8 @@
     radial-gradient(90.87% 90.87% at 50% 9.13%, #edffef 0%, #c7ffc2 100%),
     #defee9;
 
-    padding: 4rem 
-    max(1rem, calc(50vw - 37rem))
-  ;
+  padding: 4rem max(1rem, calc(50vw - 37rem));
+  padding-top: 1.5rem;
 }
 
 .content {
