@@ -3,9 +3,8 @@
 import styles from "@/styles/LandingPage.module.css";
 import { Hero, Usage, Explore, Create, Footer, AuthModal } from "@/components";
 import { useDescope, useSession, useUser } from "@descope/react-sdk";
-import { GetServerSideProps } from "next";
 import { validateRequestSession } from "@/utils/auth";
-import { SyntheticEvent, useCallback, useEffect } from "react";
+import { useCallback, useEffect } from "react";
 import { Modal } from "@mantine/core";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -23,7 +22,7 @@ const getUserDisplayName = (user: any) =>
 const LandingPage = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
-  
+
   const { isAuthenticated } = useSession();
   const { user } = useUser();
   const { logout } = useDescope();
@@ -61,11 +60,3 @@ const LandingPage = () => {
 };
 
 export default LandingPage;
-
-export const getServerSideProps: GetServerSideProps<{
-  repo: Repo;
-}> = async () => {
-  const res = await fetch("https://api.github.com/repos/vercel/next.js");
-  const repo = await res.json();
-  return { props: { repo } };
-};

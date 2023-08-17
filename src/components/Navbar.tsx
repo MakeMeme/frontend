@@ -32,8 +32,6 @@ const Navbar = () => {
     logout();
   }, [logout]);
 
-  console.log(user);
-
   return (
     <div className={styles.navbar}>
       <div className={styles.leftSection}>
@@ -69,7 +67,9 @@ const Navbar = () => {
             <Text color="primary" weight={700}>
               {user?.name}
             </Text>
-            {/* <Image src={user.picture} alt="user image" height={20} width={20} /> */}
+            <Button style={{ borderRadius: "0.625rem" }} onClick={onLogout}>
+              Logout
+            </Button>
           </>
         ) : (
           <>

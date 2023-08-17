@@ -16,6 +16,8 @@ const leftSection = ({
   state,
   setState,
   setForm,
+  setImageHeight,
+  imageHeight,
 }: {
   ref: React.RefObject<HTMLDivElement>;
   coordinateSelect: () => void;
@@ -43,6 +45,8 @@ const leftSection = ({
       }[];
     }>
   >;
+  setImageHeight: React.Dispatch<React.SetStateAction<number>>;
+  imageHeight: number;
 }) => {
   const [file, setFile] = useState<File | null>(null);
   const [profileImageSrc, setProfileImageSrc] = useState<string>("");
@@ -53,8 +57,6 @@ const leftSection = ({
     setState([]);
     resetRef.current?.();
   };
-
-  const [imageHeight, setImageHeight] = useState<number>(300);
 
   useEffect(() => {
     if (file) {
@@ -211,6 +213,8 @@ const rightSection = ({
   setState,
   form,
   setForm,
+  setImageHeight,
+  imageHeight,
 }: {
   x: number;
   y: number;
@@ -246,6 +250,8 @@ const rightSection = ({
       }[];
     }>
   >;
+  setImageHeight: React.Dispatch<React.SetStateAction<number>>;
+  imageHeight: number;
 }) => {
   const [currentActive, setCurrentActive] = useState<number>(0);
 
@@ -395,6 +401,8 @@ const Create = () => {
   const [xCoordinate, setXCoordinate] = useState<number>(x);
   const [yCoordinate, setYCoordinate] = useState<number>(y);
 
+  const [imageHeight, setImageHeight] = useState<number>(300);
+
   const [state, setState] = useState<
     {
       label: string;
@@ -418,7 +426,15 @@ const Create = () => {
         Explore your creativity
       </Text>
       <div className={styles.createInfo}>
-        {leftSection({ ref, coordinateSelect, state, setState, setForm })}
+        {leftSection({
+          ref,
+          coordinateSelect,
+          state,
+          setState,
+          setForm,
+          setImageHeight,
+          imageHeight,
+        })}
         {rightSection({
           x: xCoordinate,
           y: yCoordinate,
@@ -426,6 +442,8 @@ const Create = () => {
           setState,
           form,
           setForm,
+          setImageHeight,
+          imageHeight,
         })}
       </div>
     </div>
